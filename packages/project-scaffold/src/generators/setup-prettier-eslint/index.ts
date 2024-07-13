@@ -37,6 +37,12 @@ export default function (plop: NodePlopAPI) {
         templateFile: './templates/.prettierignore',
         force: true,
       },
+      {
+        type: 'add',
+        path: './.vscode/settings.json',
+        templateFile: './templates/.vscode/settings.json',
+        force: true,
+      },
     ],
   })
 }
