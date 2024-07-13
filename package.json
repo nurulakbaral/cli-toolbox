@@ -17,6 +17,7 @@
     "@rollup/plugin-typescript": "^11.1.6",
     "glob": "^11.0.0",
     "minimist": "^1.2.8",
+    "next": "14.2.5",
     "nx": "19.4.2",
     "plop": "^4.0.1",
     "rollup": "^4.18.1",
