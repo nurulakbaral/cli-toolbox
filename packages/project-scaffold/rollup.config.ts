@@ -10,9 +10,6 @@ import { globSync } from 'glob'
 const SOURCE_DIR = 'src'
 const DESTINATION_DIR = 'dist'
 
-const binFiles = {
-  index: './bin/index.js',
-}
 const sourceFiles = Object.fromEntries(
   globSync(`./${SOURCE_DIR}/**/*.ts`).map((file) => {
     // This remove `src/` as well as the file extension from each.
@@ -27,7 +24,7 @@ const sourceFiles = Object.fromEntries(
 )
 
 const config: RollupOptions = {
-  input: { ...sourceFiles, ...binFiles },
+  input: sourceFiles,
   output: {
     dir: DESTINATION_DIR,
     format: 'esm',

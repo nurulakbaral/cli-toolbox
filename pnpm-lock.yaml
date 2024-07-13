@@ -45,6 +45,12 @@ importers:
         specifier: ^5.5.3
         version: 5.5.3
 
+  packages/example:
+    dependencies:
+      '@cli-toolbox/project-scaffold':
+        specifier: '*'
+        version: link:../project-scaffold
+
   packages/project-scaffold: {}
 
 packages:
