@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lib:build": "rollup --config=rollup.config.ts --configPlugin=@rollup/plugin-typescript",
-    "lib:dev": "node ./dist/index.js"
+    "lib:dev": "plop --plopfile ./scripts/plopfile.js"
   },
   "type": "module",
   "keywords": [

@@ -5,6 +5,7 @@ import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
 import { nodeResolve } from '@rollup/plugin-node-resolve'
 import json from '@rollup/plugin-json'
+import copy from 'rollup-plugin-copy'
 import { globSync } from 'glob'
 
 const SOURCE_DIR = 'src'
@@ -44,6 +45,14 @@ const config: RollupOptions = {
     json(),
     commonjs(),
     typescript(),
+    copy({
+      targets: [
+        {
+          src: `${SOURCE_DIR}/generators/setup-prettier-eslint/templates`,
+          dest: `${DESTINATION_DIR}/generators/setup-prettier-eslint`,
+        },
+      ],
+    }),
   ],
 }
 
