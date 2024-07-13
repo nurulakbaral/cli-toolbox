@@ -14,17 +14,18 @@ export default function (plop: NodePlopAPI) {
       pnpm: 'pnpm add',
       bun: 'bun add',
     }
-    const process = spawnSync(
+    const processResult = spawnSync(
       command[packageManager],
-      ['-D', 'prettier', 'eslint-config-prettier', 'husky', 'lint-staged'],
+      ['-D', 'prettier', 'eslint', 'eslint-config-prettier', 'husky', 'lint-staged'],
       {
-        stdio: 'inherit',
+        stdio: ['inherit', 'inherit', 'pipe'],
         shell: true,
       }
     )
-
-    if (process.error) {
-      throw new Error(process.error.message)
+    if (processResult.error || processResult.status !== 0 || processResult.signal !== null) {
+      const errorMessage = processResult.stderr.toString()
+      console.error('❌ Error installing dependencies:', errorMessage)
+      process.exit(1)
     }
 
     return 'Dependencies installed successfully!'
@@ -36,12 +37,15 @@ export default function (plop: NodePlopAPI) {
       pnpm: 'pnpm exec husky init',
       bun: 'bunx husky init',
     }
-    const process = spawnSync(command[packageManager], {
-      stdio: 'inherit',
+    const processResult = spawnSync(command[packageManager], {
+      stdio: ['inherit', 'inherit', 'pipe'],
       shell: true,
     })
-    if (process.error) {
-      throw new Error(process.error.message)
+
+    if (processResult) {
+      const errorMessage = processResult.stderr.toString()
+      console.error('❌ Error initializing Husky:', errorMessage)
+      process.exit(1)
     }
 
     return 'Husky initialized successfully!'
@@ -50,11 +54,20 @@ export default function (plop: NodePlopAPI) {
     description: 'Setup Prettier and ESLint for Next.js project',
     prompts: [
       {
-        type: 'confirm',
         name: 'confirm',
         message:
-          'This setup will install Prettier and ESLint and overwrite your existing configuration files.\nDo you want to continue?',
-        default: false,
+          'This setup will install Prettier and ESLint and overwrite your existing configuration files.\nDo you want to continue (y/n)?',
+        validate: (value) => {
+          if (value !== 'y' && value !== 'n') {
+            return 'Please enter "y" to continue or "n" to exit.'
+          }
+
+          if (value === 'n') {
+            process.exit(0)
+          }
+
+          return true
+        },
       },
       {
         type: 'list',
