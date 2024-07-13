@@ -2,11 +2,21 @@
   "name": "cli-toolbox",
   "version": "0.0.0",
   "license": "MIT",
-  "scripts": {},
+  "scripts": {
+    "lib:build:project-scaffold": "npx nx run @cli-toolbox/project-scaffold:lib:build",
+    "lib:dev:project-scaffold": "npx nx run @cli-toolbox/project-scaffold:lib:dev"
+  },
   "private": true,
-  "dependencies": {},
   "devDependencies": {
     "@nx/js": "19.4.2",
-    "nx": "19.4.2"
+    "@rollup/plugin-commonjs": "^26.0.1",
+    "@rollup/plugin-typescript": "^11.1.6",
+    "glob": "^11.0.0",
+    "minimist": "^1.2.8",
+    "nx": "19.4.2",
+    "plop": "^4.0.1",
+    "rollup": "^4.18.1",
+    "tslib": "^2.6.3",
+    "typescript": "^5.5.3"
   }
 }

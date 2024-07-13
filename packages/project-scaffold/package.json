@@ -1,0 +1,17 @@
+{
+  "name": "@cli-toolbox/project-scaffold",
+  "version": "0.0.1",
+  "description": "CLI toolbox that focuses on setting up projects, creating apps, managing coding styles, adding dependencies, and other project initialization tasks",
+  "main": "index.js",
+  "scripts": {
+    "lib:build": "rollup --config=rollup.config.ts --configPlugin=@rollup/plugin-typescript",
+    "lib:dev": "node ./dist/index.js"
+  },
+  "type": "module",
+  "keywords": [
+    "generator",
+    "cli"
+  ],
+  "author": "nurulakbaral@gmail.com",
+  "license": "MIT"
+}
