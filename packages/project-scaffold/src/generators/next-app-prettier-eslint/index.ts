@@ -50,8 +50,8 @@ export default function (plop: NodePlopAPI) {
 
     return 'Husky initialized successfully!'
   })
-  plop.setGenerator('setup-prettier-eslint', {
-    description: 'Setup Prettier and ESLint for Next.js project',
+  plop.setGenerator('next-app-prettier-eslint', {
+    description: 'Setup Prettier and ESLint for Next.js App',
     prompts: [
       {
         name: 'confirm',
