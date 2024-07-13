@@ -8,7 +8,7 @@ export default function (plop: NodePlopAPI) {
         type: 'confirm',
         name: 'confirm',
         message:
-          'This setup will install Prettier and ESLint and overwrite your existing configuration files. Do you want to continue?',
+          'This setup will install Prettier and ESLint and overwrite your existing configuration files.\nDo you want to continue?',
         default: false,
       },
     ],
@@ -16,25 +16,25 @@ export default function (plop: NodePlopAPI) {
       {
         type: 'add',
         path: './.eslintrc.json',
-        templateFile: './templates/.eslintrc.json.hbs',
+        templateFile: './templates/.eslintrc.json',
         force: true,
       },
       {
         type: 'add',
         path: './.eslintignore',
-        templateFile: './templates/.eslintignore.hbs',
+        templateFile: './templates/.eslintignore',
         force: true,
       },
       {
         type: 'add',
         path: './.prettierrc.json',
-        templateFile: './templates/.prettierrc.json.hbs',
+        templateFile: './templates/.prettierrc.json',
         force: true,
       },
       {
         type: 'add',
         path: './.prettierignore',
-        templateFile: './templates/.prettierignore.hbs',
+        templateFile: './templates/.prettierignore',
         force: true,
       },
     ],
