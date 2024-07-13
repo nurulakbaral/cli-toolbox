@@ -6,9 +6,9 @@
     "dev": "pnpm lib:dev:project-scaffold",
     "build": "pnpm lib:build:project-scaffold",
     "publish": "pnpm lib:publish:project-scaffold",
-    "lib:dev:project-scaffold": "npx nx run @cli-toolbox/project-scaffold:lib:dev",
-    "lib:build:project-scaffold": "npx nx run @cli-toolbox/project-scaffold:lib:build",
-    "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && npm publish ./packages/project-scaffold/dist"
+    "lib:dev:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:dev",
+    "lib:build:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:build",
+    "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish"
   },
   "devDependencies": {
     "@nx/js": "19.4.2",
