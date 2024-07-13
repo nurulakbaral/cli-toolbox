@@ -10,7 +10,6 @@
     "lib:build:project-scaffold": "npx nx run @cli-toolbox/project-scaffold:lib:build",
     "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && npm publish ./packages/project-scaffold/dist"
   },
-  "private": true,
   "devDependencies": {
     "@nx/js": "19.4.2",
     "@rollup/plugin-commonjs": "^26.0.1",
