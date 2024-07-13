@@ -42,7 +42,7 @@ export default function (plop: NodePlopAPI) {
       shell: true,
     })
 
-    if (processResult) {
+    if (processResult.error || processResult.status !== 0 || processResult.signal !== null) {
       const errorMessage = processResult.stderr.toString()
       console.error('❌ Error initializing Husky:', errorMessage)
       process.exit(1)
