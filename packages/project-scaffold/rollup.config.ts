@@ -51,6 +51,10 @@ const config: RollupOptions = {
           src: `${SOURCE_DIR}/generators/setup-prettier-eslint/templates`,
           dest: `${DESTINATION_DIR}/generators/setup-prettier-eslint`,
         },
+        {
+          src: `./package.json`,
+          dest: DESTINATION_DIR,
+        },
       ],
     }),
   ],
