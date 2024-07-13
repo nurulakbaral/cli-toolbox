@@ -1,8 +1,10 @@
-import path from 'node:path'
+import * as path from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { type RollupOptions } from 'rollup'
 import commonjs from '@rollup/plugin-commonjs'
 import typescript from '@rollup/plugin-typescript'
+import { nodeResolve } from '@rollup/plugin-node-resolve'
+import json from '@rollup/plugin-json'
 import { globSync } from 'glob'
 
 const SOURCE_DIR = 'src'
@@ -31,8 +33,21 @@ const config: RollupOptions = {
     format: 'esm',
     sourcemap: false,
   },
-  external: [],
-  plugins: [commonjs(), typescript()],
+  external: ['plop', 'minimist'],
+  onwarn: (warning, warn) => {
+    if (warning.code === 'CIRCULAR_DEPENDENCY' || warning.code === 'EMPTY_BUNDLE') {
+      return
+    }
+    warn(warning)
+  },
+  plugins: [
+    nodeResolve({
+      preferBuiltins: true,
+    }),
+    json(),
+    commonjs(),
+    typescript(),
+  ],
 }
 
 export default config
