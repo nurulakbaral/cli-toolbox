@@ -5,7 +5,8 @@
   "main": "dist/index.js",
   "scripts": {
     "lib:build": "npx rimraf dist && rollup --config=rollup.config.ts --configPlugin=@rollup/plugin-typescript",
-    "lib:dev": "plop --plopfile ./scripts/plopfile.js"
+    "lib:dev": "plop --plopfile ./scripts/plopfile.js",
+    "lib:publish": "npm publish ./dist --access public"
   },
   "type": "module",
   "keywords": [
