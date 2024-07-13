@@ -26,9 +26,6 @@ importers:
       glob:
         specifier: ^11.0.0
         version: 11.0.0
-      minimist:
-        specifier: ^1.2.8
-        version: 1.2.8
       next:
         specifier: 14.2.5
         version: 14.2.5(@babel/core@7.24.8)(react-dom@18.3.1)(react@18.3.1)

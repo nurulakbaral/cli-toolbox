@@ -31,7 +31,7 @@ const config: RollupOptions = {
     format: 'esm',
     sourcemap: false,
   },
-  external: ['plop', 'minimist'],
+  external: ['plop'],
   onwarn: (warning, warn) => {
     if (warning.code === 'CIRCULAR_DEPENDENCY' || warning.code === 'EMPTY_BUNDLE') {
       return
