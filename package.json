@@ -5,8 +5,10 @@
   "scripts": {
     "dev": "pnpm lib:dev:project-scaffold",
     "build": "pnpm lib:build:project-scaffold",
+    "test": "pnpm lib:test:project-scaffold",
     "lib:dev:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:dev",
     "lib:build:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:build",
+    "lib:test:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:test",
     "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish"
   },
   "devDependencies": {
@@ -23,6 +25,7 @@
     "rollup": "^4.18.1",
     "rollup-plugin-copy": "^3.5.0",
     "tslib": "^2.6.3",
-    "typescript": "^5.5.3"
+    "typescript": "^5.5.3",
+    "vitest": "^2.0.2"
   }
 }
