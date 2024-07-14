@@ -3,10 +3,8 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "dev": "pnpm lib:dev:project-scaffold",
     "build": "pnpm lib:build:project-scaffold",
     "test": "pnpm lib:test:project-scaffold",
-    "lib:dev:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:dev",
     "lib:build:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:build",
     "lib:test:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:test",
     "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish"
