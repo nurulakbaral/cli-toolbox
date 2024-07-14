@@ -1,6 +1,4 @@
 {
   "name": "next-app-structure",
-  "type": "module",
-  "dependencies": {},
-  "devDependencies": {}
+  "type": "module"
 }

@@ -1,6 +1,4 @@
 {
   "name": "next-app-biome",
-  "type": "module",
-  "dependencies": {},
-  "devDependencies": {}
+  "type": "module"
 }

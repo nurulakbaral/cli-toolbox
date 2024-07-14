@@ -1,9 +1,4 @@
 {
   "name": "next-app-prettier-eslint",
-  "type": "module",
-  "scripts": {
-    "gen": "plop --plopfile ./plopfile.mjs"
-  },
-  "dependencies": {},
-  "devDependencies": {}
+  "type": "module"
 }
