@@ -85,46 +85,19 @@ export default function (plop: NodePlopAPI) {
         type: 'initHusky',
       },
       {
-        type: 'add',
-        path: './.lintstagedrc.json',
-        templateFile: './templates/.lintstagedrc.json',
+        type: 'addMany',
+        destination: './',
+        templateFiles: [
+          'templates/*',
+          // Notes: Add more files to copy here.
+          'templates/.husky/pre-commit',
+          'templates/.vscode/settings.json',
+        ],
+        globOptions: {
+          dot: true,
+        },
         force: true,
-      },
-      {
-        type: 'add',
-        path: './.eslintrc.json',
-        templateFile: './templates/.eslintrc.json',
-        force: true,
-      },
-      {
-        type: 'add',
-        path: './.eslintignore',
-        templateFile: './templates/.eslintignore',
-        force: true,
-      },
-      {
-        type: 'add',
-        path: './.prettierrc.json',
-        templateFile: './templates/.prettierrc.json',
-        force: true,
-      },
-      {
-        type: 'add',
-        path: './.prettierignore',
-        templateFile: './templates/.prettierignore',
-        force: true,
-      },
-      {
-        type: 'add',
-        path: './.vscode/settings.json',
-        templateFile: './templates/.vscode/settings.json',
-        force: true,
-      },
-      {
-        type: 'add',
-        path: './.husky/pre-commit',
-        templateFile: './templates/.husky/pre-commit',
-        force: true,
+        abortOnFail: true,
       },
     ],
   })
