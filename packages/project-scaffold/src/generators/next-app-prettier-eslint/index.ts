@@ -88,6 +88,7 @@ export default function (plop: NodePlopAPI) {
         delayLog('⌛ Installing dependencies...'),
         {
           type: 'installDependencies',
+          abortOnFail: true,
         },
         delayLog('⌛ Initializing Husky...'),
         {
@@ -101,7 +102,6 @@ export default function (plop: NodePlopAPI) {
             dot: true,
           },
           force: true,
-          abortOnFail: true,
         },
       ]
     },

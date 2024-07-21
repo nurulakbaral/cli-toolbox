@@ -62,7 +62,7 @@ export default function (plop: NodePlopAPI) {
             dot: true,
           },
           force: false,
-          abortOnFail: true,
+          abortOnFail: false,
         })
       }
 
@@ -75,7 +75,7 @@ export default function (plop: NodePlopAPI) {
             dot: true,
           },
           force: false,
-          abortOnFail: true,
+          abortOnFail: false,
         })
       }
 
@@ -86,7 +86,7 @@ export default function (plop: NodePlopAPI) {
           templateFiles: ['templates/src/**/*'],
           globOptions: {},
           force: false,
-          abortOnFail: true,
+          abortOnFail: false,
         })
       }
 
