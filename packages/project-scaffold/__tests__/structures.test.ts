@@ -3,8 +3,46 @@ import { glob } from 'glob'
 import * as path from 'node:path'
 import { resolvePath, getFileContent } from './utils'
 
-const NEXT_APP_PRETTIER_ESLINT_TEMPLATE_PATH = '../../../src/generators/next-app-prettier-eslint/templates'
 const NEXT_APP_STRUCTURE_TEMPLATE_PATH = '../../../src/generators/next-app-structure/templates'
+const NEXT_APP_PRETTIER_ESLINT_TEMPLATE_PATH = '../../../src/generators/next-app-prettier-eslint/templates'
+
+describe('next-app-structure', () => {
+  const templateFilesPath = resolvePath('next-app-structure', NEXT_APP_STRUCTURE_TEMPLATE_PATH, '**/*')
+  const templateFiles = glob
+    .sync(templateFilesPath, {
+      dot: true,
+    })
+    .map((filePath) => path.basename(filePath))
+    .map((filePath) => filePath.replace('.hbs', ''))
+    .filter(
+      (filePath) => !['@types', 'ci', 'archives', 'scripts', 'public', 'src'].includes(filePath)
+    ) as readonly string[]
+
+  const generatedFiles = glob
+    .sync(
+      [
+        // Root folder.
+        resolvePath('next-app-structure', './@types/vendor.d.ts'),
+        resolvePath('next-app-structure', './ci/**/*'),
+        resolvePath('next-app-structure', './archives/*'),
+        resolvePath('next-app-structure', './scripts/*'),
+        // Public folder.
+        resolvePath('next-app-structure', './public/**/*'),
+        // Src folder.
+        resolvePath('next-app-structure', './src/**/*'),
+      ],
+      {
+        dot: true,
+      }
+    )
+    .map((filePath) => path.basename(filePath))
+  console.log('🪲 - generatedFiles:', generatedFiles, generatedFiles.length)
+
+  test('should have those assets', () => {
+    const actual = templateFiles.every((template) => generatedFiles.includes(template))
+    expect(actual).toBe(true)
+  })
+})
 
 describe('next-app-prettier-eslint', () => {
   const templateFilesPath = resolvePath('next-app-prettier-eslint', NEXT_APP_PRETTIER_ESLINT_TEMPLATE_PATH, '**/*')
@@ -78,43 +116,5 @@ describe('next-app-prettier-eslint', () => {
 
     expect(actual).toBe(true)
     expect(templateFiles.length).toEqual(9)
-  })
-})
-
-describe('next-app-structure', () => {
-  const templateFilesPath = resolvePath('next-app-structure', NEXT_APP_STRUCTURE_TEMPLATE_PATH, '**/*')
-  const templateFiles = glob
-    .sync(templateFilesPath, {
-      dot: true,
-    })
-    .map((filePath) => path.basename(filePath))
-    .map((filePath) => filePath.replace('.hbs', ''))
-    .filter(
-      (filePath) => !['@types', 'ci', 'archives', 'scripts', 'public', 'src'].includes(filePath)
-    ) as readonly string[]
-
-  const generatedFiles = glob
-    .sync(
-      [
-        // Root folder.
-        resolvePath('next-app-structure', './@types/vendor.d.ts'),
-        resolvePath('next-app-structure', './ci/**/*'),
-        resolvePath('next-app-structure', './archives/*'),
-        resolvePath('next-app-structure', './scripts/*'),
-        // Public folder.
-        resolvePath('next-app-structure', './public/**/*'),
-        // Src folder.
-        resolvePath('next-app-structure', './src/**/*'),
-      ],
-      {
-        dot: true,
-      }
-    )
-    .map((filePath) => path.basename(filePath))
-  console.log('🪲 - generatedFiles:', generatedFiles, generatedFiles.length)
-
-  test('should have those assets', () => {
-    const actual = templateFiles.every((template) => generatedFiles.includes(template))
-    expect(actual).toBe(true)
   })
 })

@@ -4,7 +4,7 @@
   "license": "MIT",
   "scripts": {
     "build": "pnpm lib:build:project-scaffold",
-    "test": "node ./scripts/generates.mjs && pnpm lib:test:project-scaffold",
+    "tests": "node ./scripts/generates.mjs && pnpm lib:test:project-scaffold",
     "flush:examples": "node ./scripts/flush-examples.mjs",
     "lib:build:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:build",
     "lib:test:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:test",
