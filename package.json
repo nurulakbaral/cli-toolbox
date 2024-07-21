@@ -8,7 +8,8 @@
     "flush:examples": "node ./scripts/flush-examples.mjs",
     "lib:build:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:build",
     "lib:test:project-scaffold": "nx run @cli-toolbox/project-scaffold:lib:test",
-    "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish"
+    "lib:publish:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish",
+    "lib:publish-local:project-scaffold": "pnpm lib:build:project-scaffold && nx run @cli-toolbox/project-scaffold:lib:publish-local"
   },
   "devDependencies": {
     "@nx/js": "19.4.2",
