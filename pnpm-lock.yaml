@@ -60,6 +60,12 @@ importers:
         specifier: '*'
         version: link:../../packages/project-scaffold
 
+  examples/next-app-structure:
+    devDependencies:
+      '@cli-toolbox/project-scaffold':
+        specifier: '*'
+        version: link:../../packages/project-scaffold
+
   packages/project-scaffold: {}
 
 packages:

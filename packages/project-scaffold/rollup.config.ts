@@ -12,7 +12,9 @@ const SOURCE_DIR = 'src'
 const DESTINATION_DIR = 'dist'
 
 const sourceFiles = Object.fromEntries(
-  globSync(`./${SOURCE_DIR}/**/*.ts`).map((file) => {
+  globSync(`./${SOURCE_DIR}/**/*.ts`, {
+    ignore: ['./src/**/templates/**'],
+  }).map((file) => {
     // This remove `src/` as well as the file extension from each.
     // file, so e.g. src/nested/foo.js becomes nested/foo.
     const fileWithoutExtention = path.relative(SOURCE_DIR, file.slice(0, file.length - path.extname(file).length))
@@ -50,6 +52,10 @@ const config: RollupOptions = {
         {
           src: `${SOURCE_DIR}/generators/next-app-prettier-eslint/templates`,
           dest: `${DESTINATION_DIR}/generators/next-app-prettier-eslint`,
+        },
+        {
+          src: `${SOURCE_DIR}/generators/next-app-structure/templates`,
+          dest: `${DESTINATION_DIR}/generators/next-app-structure`,
         },
         {
           src: `./package.json`,
