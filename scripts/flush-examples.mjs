@@ -3,7 +3,10 @@ import { rimrafSync } from 'rimraf'
 import * as path from 'node:path'
 import * as fs from 'node:fs'
 
-let dirs = ['./packages/project-scaffold/__tests__/examples/next-app-prettier-eslint/*']
+let dirs = [
+  './packages/project-scaffold/__tests__/examples/next-app-prettier-eslint/*',
+  './packages/project-scaffold/__tests__/examples/next-app-structure/*',
+]
 
 let excludedFiles = dirs
   .map((dir) => [path.join(dir, '../package.json'), path.join(dir, '../plopfile.mjs')])
