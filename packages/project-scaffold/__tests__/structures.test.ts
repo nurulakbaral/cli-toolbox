@@ -36,7 +36,6 @@ describe('next-app-structure', () => {
       }
     )
     .map((filePath) => path.basename(filePath))
-  console.log('🪲 - generatedFiles:', generatedFiles, generatedFiles.length)
 
   test('should have those assets', () => {
     const actual = templateFiles.every((template) => generatedFiles.includes(template))

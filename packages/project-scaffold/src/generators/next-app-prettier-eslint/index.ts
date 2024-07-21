@@ -6,6 +6,8 @@ export interface TAnswers {
   packageManager: 'npm' | 'pnpm' | 'bun'
 }
 
+const delayLog = (msg: string) => (_answers: Record<string, any>) => new Promise<string>((resolve) => resolve(msg))
+
 export default function (plop: NodePlopAPI) {
   plop.setActionType('installDependencies', async (answers, _config, _plop) => {
     const { packageManager } = answers as TAnswers
@@ -22,6 +24,7 @@ export default function (plop: NodePlopAPI) {
         shell: true,
       }
     )
+
     if (processResult.error || processResult.status !== 0 || processResult.signal !== null) {
       const errorMessage = processResult.stderr.toString()
       console.error('❌ Error installing dependencies:', errorMessage)
@@ -55,15 +58,12 @@ export default function (plop: NodePlopAPI) {
     prompts: [
       {
         name: 'confirm',
+        type: 'confirm',
         message:
-          'This setup will install Prettier and ESLint and overwrite your existing configuration files.\nDo you want to continue (y/n)?',
+          'This setup will install Prettier and ESLint and overwrite your existing configuration files. Do you want to continue?',
         validate: (value) => {
           if (value !== 'y' && value !== 'n') {
             return 'Please enter "y" to continue or "n" to exit.'
-          }
-
-          if (value === 'n') {
-            process.exit(0)
           }
 
           return true
@@ -77,28 +77,33 @@ export default function (plop: NodePlopAPI) {
         choices: ['npm', 'pnpm', 'bun'],
       },
     ],
-    actions: [
-      {
-        type: 'installDependencies',
-      },
-      {
-        type: 'initHusky',
-      },
-      {
-        type: 'addMany',
-        destination: './',
-        templateFiles: [
-          'templates/*',
-          // Notes: Add more files to copy here.
-          'templates/.husky/pre-commit',
-          'templates/.vscode/settings.json',
-        ],
-        globOptions: {
-          dot: true,
+    actions: function (answers) {
+      const answer = answers as TAnswers
+
+      if (!answer.confirm) {
+        return []
+      }
+
+      return [
+        delayLog('⌛ Installing dependencies...'),
+        {
+          type: 'installDependencies',
         },
-        force: true,
-        abortOnFail: true,
-      },
-    ],
+        delayLog('⌛ Initializing Husky...'),
+        {
+          type: 'initHusky',
+        },
+        {
+          type: 'addMany',
+          destination: './',
+          templateFiles: ['templates/**/*'],
+          globOptions: {
+            dot: true,
+          },
+          force: true,
+          abortOnFail: true,
+        },
+      ]
+    },
   })
 }
