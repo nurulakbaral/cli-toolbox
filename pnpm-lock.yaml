@@ -54,22 +54,11 @@ importers:
         specifier: ^2.0.2
         version: 2.0.2(@types/node@20.14.10)
 
-  examples/next-app-prettier-eslint:
+  examples/next-app-scaffold:
     devDependencies:
-      '@cli-toolbox/project-scaffold':
+      '@cli-toolbox/project':
         specifier: '*'
-        version: link:../../packages/project-scaffold
-
-  examples/next-app-structure:
-    devDependencies:
-      '@cli-toolbox/project-scaffold':
-        specifier: '*'
-        version: link:../../packages/project-scaffold
-
-  packages/project-scaffold: {}
-
-  packages/project/__tests__/examples/next-app-scaffold:
-    devDependencies:
+        version: link:../../packages/project
       eslint:
         specifier: ^9.8.0
         version: 9.8.0
@@ -85,6 +74,8 @@ importers:
       prettier:
         specifier: ^3.3.3
         version: 3.3.3
+
+  packages/project: {}
 
 packages:
 
