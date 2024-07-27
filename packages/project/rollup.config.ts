@@ -50,12 +50,8 @@ const config: RollupOptions = {
     copy({
       targets: [
         {
-          src: `${SOURCE_DIR}/generators/next-app-prettier-eslint/templates`,
-          dest: `${DESTINATION_DIR}/generators/next-app-prettier-eslint`,
-        },
-        {
-          src: `${SOURCE_DIR}/generators/next-app-structure/templates`,
-          dest: `${DESTINATION_DIR}/generators/next-app-structure`,
+          src: `${SOURCE_DIR}/generators/next-app-scaffold/templates`,
+          dest: `${DESTINATION_DIR}/generators/next-app-scaffold`,
         },
         {
           src: `./package.json`,
