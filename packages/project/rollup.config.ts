@@ -13,7 +13,7 @@ const DESTINATION_DIR = 'dist'
 
 const sourceFiles = Object.fromEntries(
   globSync(`./${SOURCE_DIR}/**/*.ts`, {
-    ignore: ['./src/**/templates/**'],
+    ignore: ['./src/**/templates/**', './src/generators/types.ts'],
   }).map((file) => {
     // This remove `src/` as well as the file extension from each.
     // file, so e.g. src/nested/foo.js becomes nested/foo.

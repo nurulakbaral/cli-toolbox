@@ -1,28 +1,28 @@
 import { describe, expect, test } from 'vitest'
-import { glob } from 'glob'
-import * as path from 'node:path'
-import { resolvePath, getFileContent } from './utils'
+import { compareDir, resolvePath } from './utils'
 
 const NEXT_APP_SCAFFOLD_FOLDER_STRUCTURE = '../../../src/generators/next-app-scaffold/templates/folder-structure'
+const NEXT_APP_SCAFFOLD_CODING_STYLE = '../../../src/generators/next-app-scaffold/templates/coding-style'
 
 describe('folder-structure', () => {
-  const templateFilesPath = resolvePath('next-app-scaffold', NEXT_APP_SCAFFOLD_FOLDER_STRUCTURE, '**/*')
-  const templateFiles = glob
-    .sync(templateFilesPath, {
-      dot: true,
-    })
-    .map((filePath) => path.basename(filePath))
-    .map((filePath) => filePath.replace('.hbs', ''))
-    .filter(
-      (filePath) => !['@types', 'ci', 'archives', 'scripts', 'public', 'src'].includes(filePath)
-    ) as readonly string[]
-  console.log('🪲', templateFilesPath, templateFiles)
+  test('should have those assets', () => {
+    const { isMatch, diff } = compareDir(
+      {
+        paths: [
+          resolvePath('next-app-scaffold', NEXT_APP_SCAFFOLD_FOLDER_STRUCTURE, '**/*'),
+          resolvePath('next-app-scaffold', NEXT_APP_SCAFFOLD_CODING_STYLE, '**/*'),
+        ],
+      },
+      {
+        paths: [resolvePath('next-app-scaffold', '**/*')],
+      },
+      {
+        dot: true,
+        ignore: ['**/node_modules/**', '**/package.json', '**/package-lock.json', '**/plopfile.mjs'],
+      }
+    )
 
-  test('should have those assets', () => {})
-})
-
-describe('coding-style', () => {
-  test('should have those assets', () => {})
-  test('should have thos devDependencies', () => {})
-  test('should have same content with the template', () => {})
+    expect(isMatch).toBe(true)
+    expect(diff).toEqual([])
+  })
 })
