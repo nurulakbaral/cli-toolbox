@@ -58,6 +58,10 @@ const config: RollupOptions = {
           dest: `${DESTINATION_DIR}/generators/project-templates`,
         },
         {
+          src: './README.md',
+          dest: DESTINATION_DIR,
+        },
+        {
           src: `./package.json`,
           dest: DESTINATION_DIR,
         },

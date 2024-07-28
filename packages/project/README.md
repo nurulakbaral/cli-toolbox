@@ -1,5 +1,3 @@
-# CLI Toolbox
-
 # 📦 CLI Toolbox - Project Generator
 
 ## Installation

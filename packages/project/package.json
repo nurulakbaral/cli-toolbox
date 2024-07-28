@@ -1,6 +1,6 @@
 {
   "name": "@cli-toolbox/project",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "CLI toolbox that focuses on setting up projects, creating apps, managing coding styles, adding dependencies, and other project initialization tasks",
   "main": "dist/index.js",
   "scripts": {
