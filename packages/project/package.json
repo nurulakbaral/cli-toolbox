@@ -1,6 +1,6 @@
 {
   "name": "@cli-toolbox/project",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "CLI toolbox that focuses on setting up projects, creating apps, managing coding styles, adding dependencies, and other project initialization tasks",
   "main": "dist/index.js",
   "scripts": {
@@ -12,8 +12,18 @@
   "type": "module",
   "keywords": [
     "generator",
-    "cli"
+    "cli",
+    "automation",
+    "plop",
+    "scaffolding"
   ],
   "author": "nurulakbaral@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nurulakbaral/cli-toolbox.git"
+  },
+  "bugs": {
+    "url": "https://github.com/nurulakbaral/cli-toolbox/issues"
+  }
 }
