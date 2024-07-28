@@ -54,6 +54,10 @@ const config: RollupOptions = {
           dest: `${DESTINATION_DIR}/generators/next-app-scaffold`,
         },
         {
+          src: `${SOURCE_DIR}/generators/project-templates/templates`,
+          dest: `${DESTINATION_DIR}/generators/project-templates`,
+        },
+        {
           src: `./package.json`,
           dest: DESTINATION_DIR,
         },

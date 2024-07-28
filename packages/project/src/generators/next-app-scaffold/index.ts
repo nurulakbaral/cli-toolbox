@@ -1,7 +1,8 @@
 import { spawnSync } from 'node:child_process'
-import { type NodePlopAPI, type ActionType } from 'plop'
+import { type NodePlopAPI } from 'plop'
+import { TActions } from '../types'
 
-export type TAnswers = {
+type TAnswers = {
   packageManager: 'npm' | 'pnpm' | 'bun'
   setupFolderStructure: boolean
   setupCodingStyle: boolean
@@ -91,7 +92,7 @@ export default function (plop: NodePlopAPI) {
     ],
     actions: function (ctx) {
       let answers = ctx as TAnswers
-      let actions: ActionType[] = []
+      let actions: TActions<TAnswers> = []
 
       if (answers.setupFolderStructure) {
         actions.push(
