@@ -30,14 +30,14 @@ export default function (plop: NodePlopAPI) {
         when: (answers) => (answers as TAnswers).setupPath,
         type: 'input',
         name: 'servicePath',
-        message: 'Enter the path for the service: ',
+        message: 'Enter the path for the service:',
         default: './src/services',
       },
       {
         when: (answers) => (answers as TAnswers).setupPath,
         type: 'input',
         name: 'featurePath',
-        message: 'Enter the path for the feature: ',
+        message: 'Enter the path for the feature:',
         default: './src/features',
       },
       {
@@ -53,13 +53,13 @@ export default function (plop: NodePlopAPI) {
       {
         type: 'input',
         name: 'serviceName',
-        message: 'Enter the service name',
+        message: 'Enter the service name:',
         when: (answers) => (answers as TAnswers).templateNames.includes('service'),
       },
       {
         type: 'input',
         name: 'featureName',
-        message: 'Enter the feature name',
+        message: 'Enter the feature name:',
         when: (answers) => (answers as TAnswers).templateNames.includes('feature'),
       },
     ],
