@@ -32,9 +32,10 @@ Then, you can add the following code to your `plopfile.{js,mjs}`:
 // plopfile.js
 
 /** @param {import('plop').NodePlopAPI} plop */
-default async function config(plop) {
+async function config(plop) {
   await plop.load('@cli-toolbox/project')
 }
+
 module.exports = config
 ```
 
