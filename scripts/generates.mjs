@@ -1,8 +1,8 @@
 import { spawnSync } from 'node:child_process'
 
 let dirs = [
-  './packages/project/__tests__/examples/next-app-scaffold',
-  './packages/project/__tests__/examples/project-templates',
+  './packages/cli-toolbox-project/__tests__/examples/next-app-scaffold',
+  './packages/cli-toolbox-project/__tests__/examples/project-templates',
 ]
 
 dirs.forEach((dir) => {

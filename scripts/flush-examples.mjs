@@ -4,8 +4,8 @@ import * as path from 'node:path'
 import * as fs from 'node:fs'
 
 let dirs = [
-  './packages/project/__tests__/examples/next-app-scaffold/*',
-  './packages/project/__tests__/examples/project-templates/*',
+  './packages/cli-toolbox-project/__tests__/examples/next-app-scaffold/*',
+  './packages/cli-toolbox-project/__tests__/examples/project-templates/*',
 ]
 
 let excludedFiles = dirs

@@ -3,11 +3,9 @@
   "version": "0.0.0",
   "license": "MIT",
   "scripts": {
-    "build": "pnpm lib:build:project",
-    "tests": "node ./scripts/generates.mjs && pnpm lib:test:project",
     "flush:examples": "node ./scripts/flush-examples.mjs",
     "lib:build:project": "nx run @cli-toolbox/project:lib:build",
-    "lib:test:project": "nx run @cli-toolbox/project:lib:test",
+    "lib:tests:project": "node ./scripts/generates.mjs && nx run @cli-toolbox/project:lib:tests",
     "lib:publish:project": "pnpm lib:build:project && nx run @cli-toolbox/project:lib:publish",
     "lib:publish-local:project": "pnpm lib:build:project && nx run @cli-toolbox/project:lib:publish-local"
   },

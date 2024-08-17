@@ -5,7 +5,7 @@
   "main": "dist/index.js",
   "scripts": {
     "lib:build": "npx rimraf dist && rollup --config=rollup.config.ts --configPlugin=@rollup/plugin-typescript",
-    "lib:test": "vitest --reporter=verbose",
+    "lib:tests": "vitest --reporter=verbose",
     "lib:publish": "npm publish ./dist --access public",
     "lib:publish-local": "npm publish ./dist --access public --registry http://localhost:4873"
   },
