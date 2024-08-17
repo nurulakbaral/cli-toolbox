@@ -1,67 +1,23 @@
-# CLI Toolbox
+# 📦 CLI Toolbox
 
 CLI Toolbox is a collection of opinionated generators designed to create minimalist templates, including folder structures, scaffolding frameworks, and bundlers.
 
 #### [View CLI Toolbox Roadmap](/ROADMAP.md)
 
-# 📦 CLI Toolbox - Project Generator
+# 🛠️ Generators
 
-## Installation
+### CLI Toolbox - Project
 
-```bash
-$ pnpm add -D plop @cli-toolbox/project
+[See documentation](./packages//cli-toolbox-project/README.md) for usage example and options documentation.
 
-# or
+### CLI Toolbox - Mock Service Worker
 
-$ npm install -D plop @cli-toolbox/project
-```
+[Coming Soon](/ROADMAP.md)
 
-## Usage
+### CLI Toolbox - JavaScript Package Bundlers
 
-After installing the packages, you have to create a `plopfile.{js,mjs}` in the root of your project.
+[Coming Soon](/ROADMAP.md)
 
-```bash
-# CommonJS
-$ touch plopfile.js
+### CLI Toolbox - JavaScript App Bundlers
 
-# or
-
-# ECMAScript modules
-$ touch plopfile.mjs
-```
-
-Then, you can add the following code to your `plopfile.{js,mjs}`:
-
-```js
-// plopfile.js
-
-/** @param {import('plop').NodePlopAPI} plop */
-async function config(plop) {
-  await plop.load('@cli-toolbox/project')
-}
-
-module.exports = config
-```
-
-OR
-
-```js
-// plopfile.mjs
-
-/** @param {import('plop').NodePlopAPI} plop */
-export default async function config(plop) {
-  await plop.load('@cli-toolbox/project')
-}
-```
-
-After that, you can run the following command:
-
-```bash
-# pnpm
-$ pnpm plop
-
-# or
-
-# npm
-$ npx plop
-```
+[Coming Soon](/ROADMAP.md)
