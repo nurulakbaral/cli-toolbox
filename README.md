@@ -1,5 +1,9 @@
 # CLI Toolbox
 
+CLI Toolbox is a collection of opinionated generators designed to create minimalist templates, including folder structures, scaffolding frameworks, and bundlers.
+
+#### [View CLI Toolbox Roadmap](/ROADMAP.md)
+
 # 📦 CLI Toolbox - Project Generator
 
 ## Installation
